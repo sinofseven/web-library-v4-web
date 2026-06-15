@@ -1,16 +1,21 @@
 import { errorResponse, jsonResponse } from "../../_lib/http";
 import { isJsonRequest, isRecord } from "../../_lib/usecases";
 
-type GetKvRequest = {
+type PutKvRequest = {
   key: string;
+  value: string;
 };
 
-type GetKvResponse = {
-  value: string | null;
+type PutKvResponse = {
+  ok: true;
 };
 
-function isGetKvRequest(value: unknown): value is GetKvRequest {
-  return isRecord(value) && typeof value.key === "string";
+function isPutKvRequest(value: unknown): value is PutKvRequest {
+  return (
+    isRecord(value) &&
+    typeof value.key === "string" &&
+    typeof value.value === "string"
+  );
 }
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
@@ -18,7 +23,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     return errorResponse(
       415,
       "unsupported_media_type",
-      "Content-Type must be application/json.",
+      "Content-Type must be application/json",
     );
   }
 
@@ -36,15 +41,15 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     );
   }
 
-  if (!isGetKvRequest(body)) {
+  if (!isPutKvRequest(body)) {
     return errorResponse(
       400,
       "invalid_request_body",
-      "Request body must have a string key.",
+      "Request body must have string key and string value",
     );
   }
 
-  const value = await kv.get(body.key);
+  await kv.put(body.key, body.value);
 
-  return jsonResponse<GetKvResponse>({ value });
+  return jsonResponse<PutKvResponse>({ ok: true });
 };
