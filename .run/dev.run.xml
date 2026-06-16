@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="dev" type="CompoundRunConfigurationType">
+    <toRun name="dev:app" type="js.build_tools.npm" />
+    <toRun name="dev:functions" type="js.build_tools.npm" />
+    <toRun name="dev:kv-seed" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>
