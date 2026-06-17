@@ -6,15 +6,15 @@
   "scripts": {
     "build": "envsubst < wrangler.toml > wrangler.toml.tmp && mv wrangler.toml.tmp wrangler.toml && tsc -b && vite build",
     "lint": "eslint .",
-    "format": "prettier -w src/ functions/ eslint.config.js vite.config.ts",
+    "format": "prettier -w src/ functions/ scripts/ eslint.config.js vite.config.ts",
     "preview": "vite preview",
     "dev:app": "vite",
     "dev:functions": "wrangler pages dev dist --persist-to .wrangler/state",
-    "dev:kv-seed": "wait-on tcp:localhost:8786 && wrangler kv bulk put --local --binding web_library_v4 --persist-to .wrangler/state local-kv/seed.json",
+    "dev:kv-seed": "node scripts/fix-seed.ts && wait-on tcp:localhost:8786 && wrangler kv bulk put --local --binding web_library_v4 --persist-to .wrangler/state local-kv/fixed-seed.json",
     "dev": "mkdir -p dist && concurrently \"npm run dev:app\" \"npm run dev:functions\" \"npm run dev:kv-seed\""
   },
   "dependencies": {
-    "@yui540/comimi": "^0.13.0",
+    "@yui540/comimi": "0.13.0",
     "@yui540/comimi-react": "^0.2.3",
     "bulma": "^1.0.4",
     "react": "^19.2.6",

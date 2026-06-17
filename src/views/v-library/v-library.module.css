@@ -1,0 +1,11 @@
+.LinkLike {
+    appearance: none;
+    border: none;
+    background: none;
+    padding: 0;
+    
+    color: LinkText;
+    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
+}

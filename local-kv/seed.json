@@ -1,1 +1,116 @@
-[{ "key": "tmp", "value": "tmp" }]
+[
+  {
+    "key": "book:a-001",
+    "value": {
+      "id": "a-001",
+      "name": "a-001",
+      "seriesId": "aaa",
+      "seriesIndex": 1,
+      "pages": [
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-001%0A001",
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-001%0A002",
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-001%0A003",
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-001%0A004",
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-001%0A005"
+      ]
+    }
+  },
+  {
+    "key": "book:a-002",
+    "value": {
+      "id": "a-002",
+      "name": "a-002",
+      "seriesId": "aaa",
+      "seriesIndex": 2,
+      "pages": [
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-002%0A001",
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-002%0A002",
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-002%0A003",
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-002%0A004",
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-002%0A005"
+      ]
+    }
+  },
+  {
+    "key": "book:a-003",
+    "value": {
+      "id": "a-003",
+      "name": "a-003",
+      "seriesId": "aaa",
+      "seriesIndex": 2,
+      "pages": [
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-003%0A001",
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-003%0A002",
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-003%0A003",
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-003%0A004",
+        "3d4070/ffffff/848x1200.png?text=aaa%0Aa-003%0A005"
+      ]
+    }
+  },
+  {
+    "key": "book:b-001",
+    "value": {
+      "id": "b-001",
+      "name": "b-001",
+      "seriesId": "bbb",
+      "seriesIndex": 1,
+      "pages": [
+        "3d4070/ffffff/848x1200.png?text=bbb%0Ab-001%0A001",
+        "3d4070/ffffff/848x1200.png?text=bbb%0Ab-001%0A002",
+        "3d4070/ffffff/848x1200.png?text=bbb%0Ab-001%0A003",
+        "3d4070/ffffff/848x1200.png?text=bbb%0Ab-001%0A004",
+        "3d4070/ffffff/848x1200.png?text=bbb%0Ab-001%0A005"
+      ]
+    }
+  },
+  {
+    "key": "book:b-002",
+    "value": {
+      "id": "b-002",
+      "name": "b-002",
+      "seriesId": "bbb",
+      "seriesIndex": 2,
+      "pages": [
+        "3d4070/ffffff/848x1200.png?text=bbb%0Ab-002%0A001",
+        "3d4070/ffffff/848x1200.png?text=bbb%0Ab-002%0A002",
+        "3d4070/ffffff/848x1200.png?text=bbb%0Ab-002%0A003",
+        "3d4070/ffffff/848x1200.png?text=bbb%0Ab-002%0A004",
+        "3d4070/ffffff/848x1200.png?text=bbb%0Ab-002%0A005"
+      ]
+    }
+  },
+  {
+    "key": "series:aaa",
+    "value": {
+      "id": "aaa",
+      "name": "aaa",
+      "libraryIndex": 2,
+      "books": [
+        { "id": "a-001", "name": "a-001" },
+        { "id": "a-002", "name": "a-002" },
+        { "id": "a-003", "name": "a-003" }
+      ]
+    }
+  },
+  {
+    "key": "series:bbb",
+    "value": {
+      "id": "bbb",
+      "name": "bbb",
+      "libraryIndex": 1,
+      "books": [
+        { "id": "b-001", "name": "b-001" },
+        { "id": "b-002", "name": "b-002" }
+      ]
+    }
+  },
+  {
+    "key": "library",
+    "value": {
+      "series": [
+        { "id": "bbb", "name": "bbb" },
+        { "id": "aaa", "name": "aaa" }
+      ]
+    }
+  }
+]

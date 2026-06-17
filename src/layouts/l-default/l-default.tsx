@@ -10,7 +10,7 @@ export function LDefault() {
           </Link>
         </div>
       </nav>
-      <div className="container pt-2">
+      <div className="container pt-3">
         <Outlet />
       </div>
     </>
