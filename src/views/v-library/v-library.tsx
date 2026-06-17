@@ -6,7 +6,6 @@ import type { LatestBook, Library } from "@/models/library";
 import { putReadingProgress } from "@/unsafe-usecases/put-reading-progress";
 
 import { loaderVLibrary } from "./loader-v-library";
-import Style from "./v-library.module.css";
 
 export function VLibrary() {
   const { promiseLibrary, promiseLatest } =

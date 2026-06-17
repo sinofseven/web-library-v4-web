@@ -4,19 +4,21 @@ export type Book = {
   id: string;
   name: string;
   seriesId: string;
-  seriesIndex: number;
+  seriesOrder: number;
   pages: Array<string>;
   readingDirection?: ReadingDirection;
+};
+
+export type SeriesBook = {
+  id: string;
+  name: string;
 };
 
 export type Series = {
   id: string;
   name: string;
-  libraryIndex: number;
-  books: Array<{
-    id: string;
-    name: string;
-  }>;
+  libraryOrder: number;
+  books: Array<SeriesBook>;
 };
 
 export type Library = {

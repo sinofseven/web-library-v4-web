@@ -9,7 +9,7 @@ import { Suspense, useRef } from "react";
 import { Await, Link, useLoaderData } from "react-router";
 
 import { CLoadingMessage } from "@/components/c-loading-message";
-import type { Book, LatestBook, Series } from "@/models/library";
+import type { Book, LatestBook, Series, SeriesBook } from "@/models/library";
 import { putLatest } from "@/usecases";
 import { DOMAIN_IMAGE } from "@/variables";
 
@@ -129,6 +129,7 @@ export function VBook() {
             </li>
           </ul>
         </nav>
+        {createInfoBlock(book, series, seriesId)}
       </>
     );
   }
@@ -164,5 +165,78 @@ export function VBook() {
         {elementAwait}
       </Await>
     </Suspense>
+  );
+}
+
+function createInfoBlock(book: Book, series: Series | null, seriesId: string) {
+  function resolveBetweenBooks(): [SeriesBook | null, SeriesBook | null] {
+    if (series == null) {
+      return [null, null];
+    }
+
+    const currentSeriesIndex = series.books.findIndex((x) => x.id === book.id);
+    if (currentSeriesIndex === -1) {
+      return [null, null];
+    }
+
+    const previousBook: SeriesBook | undefined =
+      series.books[currentSeriesIndex - 1];
+    const nextBook: SeriesBook | undefined =
+      series.books[currentSeriesIndex + 1];
+
+    return [
+      previousBook == null ? null : previousBook,
+      nextBook == null ? null : nextBook,
+    ];
+  }
+
+  const rowSeries =
+    series == null ? null : (
+      <tr>
+        <th>Series</th>
+        <td>{series.name}</td>
+      </tr>
+    );
+
+  const [previousBook, nextBook] = resolveBetweenBooks();
+
+  const rowPreviousBook =
+    previousBook == null ? null : (
+      <tr>
+        <th>Previous Book</th>
+        <td>
+          <Link
+            to={`/series/${seriesId}/book/${previousBook.id}`}
+            reloadDocument
+          >
+            {previousBook.name}
+          </Link>
+        </td>
+      </tr>
+    );
+  const rowNextBook =
+    nextBook == null ? null : (
+      <tr>
+        <th>Next Book</th>
+        <td>
+          <Link to={`/series/${seriesId}/book/${nextBook.id}`} reloadDocument>
+            {nextBook.name}
+          </Link>
+        </td>
+      </tr>
+    );
+
+  return (
+    <table className="table is-fullwidth is-striped">
+      <tbody>
+        <tr>
+          <th>Title</th>
+          <td>{book.name}</td>
+        </tr>
+        {rowSeries}
+        {rowNextBook}
+        {rowPreviousBook}
+      </tbody>
+    </table>
   );
 }
