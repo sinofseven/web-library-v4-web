@@ -14,7 +14,7 @@
     "dev": "mkdir -p dist && concurrently \"npm run dev:app\" \"npm run dev:functions\" \"npm run dev:kv-seed\""
   },
   "dependencies": {
-    "@yui540/comimi": "0.13.0",
+    "@yui540/comimi": "0.16.0",
     "@yui540/comimi-react": "^0.2.3",
     "bulma": "^1.0.4",
     "react": "^19.2.6",
