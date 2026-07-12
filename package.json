@@ -22,7 +22,7 @@
     "react-router": "^7.17.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
+    "@babel/core": "^8.0.0",
     "@eslint/js": "^10.0.1",
     "@rolldown/plugin-babel": "^0.2.3",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
